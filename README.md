@@ -1,6 +1,6 @@
 # Enabling Music During Fast Forward in Persona 4 Golden (Steam)
 
-## Step 1: Patching the Executable
+## Step 1: Music during fast forward
 
 Make a backup of `Persona 4 Golden\P4G.exe`
 
@@ -10,6 +10,8 @@ In a hex editor search for
 
 Replace with:
 ```90 90 90 90 90 90 90 90 90 ```
+
+Note: There's a few quirks with this. A small amount of the voice lines will still play during fast forward, and some of the background music (for example, junes) is on the same channel as the voices so it remains muted. 
 
 ## Step 2: Replacing the VCR sound with silence
 
@@ -39,12 +41,12 @@ Replace SYS_STOP.wav
 xacttool -wb "F:\Steam\steamapps\common\Persona 4 Golden\SND\BGM.xwb" -r "F:\Downloads\silence.wav" -i 1051
 ```
 
-## Removing the Static
+## Step 3: Removing the scrolling static
 
 ### Extracting the PAC file
 Download NR2_unpacker https://modworkshop.net/mod/17641
 
-Note: The texture we're trying to replace is in multiple pac archives, and only one gets loaded depending on which language tha game is running in.  I'm working with the assumption that you want to modify the english version, which will be data00004. I believe japanese is data00001, and data00005/data00006 are for some other languages I haven't confirmed.
+Note: The texture we're trying to replace is in multiple pac archives, and only one gets loaded depending on which language the game is running in. I'm working with the assumption that you want to modify the english version, which will be data00004. I believe japanese is data00001, and data00005/data00006 are for some other languages I haven't confirmed.
 
 Make a backup of `Persona 4 Golden\data00004.pac`
 
