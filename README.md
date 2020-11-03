@@ -4,14 +4,29 @@
 
 Make a backup of `Persona 4 Golden\P4G.exe`
 
-In a hex editor search for
+Open P4G.exe in a hex editor
+
+### For version 1.0 of the exe (released 6/13/2020)
+
+At offset 0x63D9B4E, highlight:
+
 ```F3 0F 11 0C B5 B8 4B E9 05```
-(it should be at 0x63D9B4E)
 
-Replace with:
-```90 90 90 90 90 90 90 90 90 ```
+Overwrite with:
 
-Note: There's a few quirks with this. A small amount of the voice lines will still play during fast forward, and some of the background music (for example, junes) is on the same channel as the voices so it remains muted. 
+```90 90 90 90 90 90 90 90 90```
+
+### For version 1.1 (released 9/1/2020)
+
+At offset 0x42CFEE, highlight:
+
+```F3 0 F11 0C B5 B8 1B E6 05```
+
+Overwrite with:
+
+```90 90 90 90 90 90 90 90 90```
+
+Note: There's a few quirks with this. A small amount of the voice lines will still play during fast forward, and some of the background music (for example, junes) is on the same channel as the voices so it remains muted.
 
 ## Step 2: Replacing the VCR sound with silence
 
@@ -79,4 +94,3 @@ Drag in your modified init_free.bin
 Save the pac (you'll have to name it something else or the program won't succeed)
 
 Rename your modified pac to data00004.pac
-
